@@ -6,6 +6,9 @@ target 'AppFactory' do
   # use_frameworks!
 
   # Pods for AppFactory
+  pod 'AFNetworking', '~>2.6.0'
+  pod 'Masonry','~>0.6.1'
+  pod 'IQKeyboardManager', '~> 3.3.7'  #兼容IOS7
 
   target 'AppFactoryTests' do
     inherit! :search_paths

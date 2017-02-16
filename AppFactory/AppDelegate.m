@@ -17,6 +17,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self configureBoardManager];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    //[self setupLoginViewController];
+    
+    //引导页面加载
+    //[self setupIntroductoryPage];
+    
+    //启动广告（记得放最后，才可以盖在页面上面）
+    //[self setupAdveriseView];
+    
+
     return YES;
 }
 
@@ -122,6 +135,17 @@
             abort();
         }
     }
+}
+
+#pragma mark 键盘收回管理
+-(void)configureBoardManager
+{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.keyboardDistanceFromTextField=60;
+    manager.enableAutoToolbar = NO;
 }
 
 @end
